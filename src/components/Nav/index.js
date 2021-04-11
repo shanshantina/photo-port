@@ -2,6 +2,7 @@ import React from "react";
 import { capitalizeFirstLetter } from "../../utils/helpers";
 
 function Nav(props) {
+  // hooks
   const { categories = [], setCurrentCategory, currentCategory } = props;
   // in here we use array and .map method to return the list navigators
   // When we map over an array in a JSX expression, we should return only a single JSX element

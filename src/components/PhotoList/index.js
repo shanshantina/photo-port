@@ -118,6 +118,7 @@ function PhotoList({ category }) {
     },
   ]);
 
+  // hooks
   const currentPhotos = photos.filter((photo) => photo.category === category);
 
   return (
