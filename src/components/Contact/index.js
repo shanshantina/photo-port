@@ -37,6 +37,14 @@ function ContactForm() {
     console.log(formState);
   }
 
+  /* the error message function is the same as 
+  if(errorMessage) {
+  <div>
+    <p className="error-text">{errorMessage}</p>
+  </div>
+  } 
+   this error message only runs when error occur*/
+
   return (
     <section>
       <h1>Contact Me</h1>
@@ -47,7 +55,7 @@ function ContactForm() {
             type="text"
             name="name"
             defaultValue={name}
-            onChange={handleChange}
+            onBlur={handleChange}
           />
         </div>
         <div>
@@ -56,7 +64,7 @@ function ContactForm() {
             type="email"
             name="email"
             defaultValue={email}
-            onChange={handleChange}
+            onBlur={handleChange}
           />
         </div>
         <div>
@@ -65,9 +73,14 @@ function ContactForm() {
             name="message"
             defaultValue={message}
             rows="5"
-            onChange={handleChange}
+            onBlur={handleChange}
           />
         </div>
+        {errorMessage && (
+            <div>
+                <p className="error-text">{errorMessage}</p>
+            </div>
+        )}
         <button type="submit">Submit</button>
       </form>
     </section>

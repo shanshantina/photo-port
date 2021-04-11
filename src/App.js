@@ -4,7 +4,10 @@ import Nav from "./components/Nav";
 import Gallery from "./components/Gallery";
 import ContactForm from "./components/Contact";
 
+
+
 function App() {
+  const [contactSelected, setContactSelected] = useState(false);
   const [categories] = useState([
     {
       name: "commercial",
@@ -21,6 +24,17 @@ function App() {
 
   const [currentCategory, setCurrentCategory] = useState(categories[0]);
 
+  /* in main element is the same as 
+   if(!contactSelected) {
+  <>
+    <Gallery currentCategory={currentCategory}></Gallery>
+    <About></About>
+  </> 
+  } else {
+    <ContactForm></ContactForm>
+  } 
+  which means if the contact seleced by user, shows contact form instead gallery and about */
+
   return (
     // JSX(JavaScript XML) that can represent HTML in JavaScript
     /* React.createElement('div", {}, [
@@ -32,11 +46,20 @@ function App() {
         categories={categories}
         setCurrentCategory={setCurrentCategory}
         currentCategory={currentCategory}
+        contactSelected = {contactSelected}
+        setContactSelected = {setContactSelected}
       ></Nav>
       <main>
-        <ContactForm></ContactForm>
-        <Gallery currentCategory={currentCategory}></Gallery>
-        <About></About>
+        {!contactSelected ? (
+          /* <></> is React fragments, a shorthand abbreviation for <React.Fragment></React.Fragment>. 
+          allow multiple elements to be grouped together */
+          <>
+            <Gallery currentCategory={currentCategory}></Gallery>
+            <About></About>
+          </>
+        ) : (
+          <ContactForm></ContactForm>
+        )}
       </main>
     </div>
   );
