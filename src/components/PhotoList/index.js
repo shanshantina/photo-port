@@ -135,7 +135,7 @@ function PhotoList({ category }) {
       <div className="flex-row">
         {currentPhotos.map((image, i) => (
           <img
-            src={require(`../../assets/small/${category}/${i}.jpg`)}
+            src={process.env.PUBLIC_URL + `/assets/small/${category}/${i}.jpg`}
             alt={image.name}
             className="img-thumbnail mx-1"
             onClick={() => toggleModal(image, i)}
