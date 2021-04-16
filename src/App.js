@@ -44,8 +44,8 @@ function App() {
     <div>
       <Nav
         categories={categories}
-        setCurrentCategory={setCurrentCategory}
         currentCategory={currentCategory}
+        setCurrentCategory={setCurrentCategory}
         contactSelected = {contactSelected}
         setContactSelected = {setContactSelected}
       ></Nav>
